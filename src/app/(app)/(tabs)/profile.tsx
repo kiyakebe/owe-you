@@ -18,12 +18,12 @@ import { useRouter } from "expo-router";
 
 export default function ProfileScreen() {
   const inset = useSafeAreaInsets();
-  const { logout } = useAuthStore();
+  const { reset } = useAuthStore();
   const router = useRouter();
 
-  const handleLogout = () => {
-    logout();
-    router.replace("/login");
+  const handleResetApp = () => {
+    reset();
+    router.replace("/onboarding");
   };
 
   return (
@@ -43,7 +43,7 @@ export default function ProfileScreen() {
             </TouchableOpacity>
           </View>
           <Text style={styles.userName}>kIYa kebe</Text>
-          <Text style={styles.userEmail}>Kiya@routine.com</Text>
+          <Text style={styles.userEmail}>Kiya@owe-you.com</Text>
         </View>
 
         {/* Stats Section */}
@@ -84,9 +84,9 @@ export default function ProfileScreen() {
 
         {/* Danger Zone */}
         <View style={[styles.dangerZone, { paddingBottom: inset.bottom + 40 }]}>
-          <TouchableOpacity style={styles.logoutButton} onPress={handleLogout}>
-            <Ionicons name="log-out-outline" size={20} color="#EF4444" />
-            <Text style={styles.logoutText}>Log Out</Text>
+          <TouchableOpacity style={styles.logoutButton} onPress={handleResetApp}>
+            <Ionicons name="refresh-outline" size={20} color="#EF4444" />
+            <Text style={styles.logoutText}>Reset App</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

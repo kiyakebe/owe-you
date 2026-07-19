@@ -11,13 +11,12 @@ import * as SplashScreen from "expo-splash-screen";
 SplashScreen.preventAutoHideAsync();
 
 export default function Splash() {
-  const { isAuthenticated, hasCompletedOnboarding } = useAuthStore();
+  const { hasCompletedOnboarding } = useAuthStore();
   const router = useRouter();
 
   console.log(
     JSON.stringify(
       {
-        isAuthenticated,
         hasCompletedOnboarding,
       },
       null,
@@ -39,8 +38,6 @@ export default function Splash() {
         // Routing decisions
         if (!hasCompletedOnboarding) {
           router.replace("/onboarding");
-        } else if (!isAuthenticated) {
-          router.replace("/login");
         } else {
           router.replace("/(app)/(tabs)");
         }
@@ -56,7 +53,7 @@ export default function Splash() {
         <View style={styles.logoContainer}>
           <Ionicons name="checkbox-outline" size={80} color="#000000" />
         </View>
-        <Text style={styles.title}>Routine</Text>
+        <Text style={styles.title}>Owe You</Text>
         <Text style={styles.subtitle}>Your Day, Simplified</Text>
       </View>
     </SafeAreaView>

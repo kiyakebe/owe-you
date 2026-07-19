@@ -12,7 +12,7 @@ export default function Onboarding() {
   const handleGetStarted = () => {
     completeOnboarding();
     // The layout effect will handle the redirect, but we can also do it explicitly
-    router.replace("/login");
+    router.replace("/(app)/(tabs)");
   };
 
   return (
