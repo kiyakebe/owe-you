@@ -30,7 +30,7 @@ export default function Splash() {
         if (!hasCompletedOnboarding) {
           router.replace("/onboarding");
         } else {
-          router.replace("/(app)/(tabs)/users");
+          router.replace("/(app)/(tabs)");
         }
       }
     }

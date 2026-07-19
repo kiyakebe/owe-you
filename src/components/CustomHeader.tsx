@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 type Props = {
@@ -14,10 +14,6 @@ export default function CustomHeader({ title = "Owe Me" }: Props) {
         </View>
         <Text style={styles.title}>{title}</Text>
       </View>
-
-      <TouchableOpacity accessibilityRole="button" accessibilityLabel="Notifications">
-        <Ionicons name="notifications-outline" size={24} color="#111827" />
-      </TouchableOpacity>
     </View>
   );
 }
@@ -30,7 +26,6 @@ const styles = StyleSheet.create({
     paddingTop: 26,
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "space-between",
   },
   left: {
     flexDirection: "row",

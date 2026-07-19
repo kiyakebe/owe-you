@@ -11,7 +11,7 @@ export default function Onboarding() {
 
   const handleGetStarted = () => {
     completeOnboarding();
-    router.replace("/(app)/(tabs)/users");
+    router.replace("/(app)/(tabs)");
   };
 
   return (

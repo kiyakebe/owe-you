@@ -37,7 +37,7 @@ export default function TabLayout() {
 
   return (
     <Tabs
-      initialRouteName="users"
+      initialRouteName="index"
       screenOptions={{
         tabBarShowLabel: false,
         header: () => <CustomHeader title="Owe Me" />,
@@ -50,8 +50,8 @@ export default function TabLayout() {
         tabBarStyle: {
           backgroundColor: "#ffffff",
           borderRadius: 50,
-          marginHorizontal: 15,
-          paddingHorizontal: 12,
+          marginHorizontal: 10,
+          paddingHorizontal: 8,
           paddingVertical: 20,
           marginBottom: insets.bottom + 10,
           height: 60,
@@ -68,7 +68,10 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          href: null,
+          title: "Home",
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} title="Home" icon="home-outline" />
+          ),
         }}
       />
       <Tabs.Screen
@@ -118,13 +121,13 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   activeContainer: {
     flex: 1,
-    minWidth: 92,
+    minWidth: 72,
     minHeight: 56,
     marginTop: 16,
     borderRadius: 999,
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 12,
+    paddingHorizontal: 8,
   },
   inactiveContainer: {
     minHeight: 56,

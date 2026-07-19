@@ -5,7 +5,7 @@ export default function AuthLayout() {
   const { hasCompletedOnboarding } = useAuthStore();
 
   if (hasCompletedOnboarding) {
-    return <Redirect href="/(app)/(tabs)/users" />;
+    return <Redirect href="/(app)/(tabs)" />;
   }
 
   return <Stack screenOptions={{ headerShown: false }} />;
