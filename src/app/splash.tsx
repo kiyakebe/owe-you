@@ -2,58 +2,50 @@ import React, { useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Redirect, useRouter } from "expo-router";
+import { useRouter } from "expo-router";
 import { useAuthStore } from "../store/useAuthStore";
+import { useDebtStore } from "../store/useDebtStore";
 
 import * as SplashScreen from "expo-splash-screen";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function Splash() {
-  const { hasCompletedOnboarding } = useAuthStore();
+  const hasCompletedOnboarding = useAuthStore((s) => s.hasCompletedOnboarding);
+  const authHydrated = useAuthStore((s) => s.isHydrated);
+  const debtHydrated = useDebtStore((s) => s.isHydrated);
   const router = useRouter();
 
-  console.log(
-    JSON.stringify(
-      {
-        hasCompletedOnboarding,
-      },
-      null,
-      2,
-    ),
-  );
-
   useEffect(() => {
+    if (!authHydrated || !debtHydrated) return;
+
     async function prepare() {
       try {
-        // Pre-load fonts, make any API calls you need to do here
-        await new Promise((resolve) => setTimeout(resolve, 2000));
+        await new Promise((resolve) => setTimeout(resolve, 800));
       } catch (e) {
         console.warn(e);
       } finally {
-        // Tell the application to render
         await SplashScreen.hideAsync();
 
-        // Routing decisions
         if (!hasCompletedOnboarding) {
           router.replace("/onboarding");
         } else {
-          router.replace("/(app)/(tabs)");
+          router.replace("/(app)/(tabs)/users");
         }
       }
     }
 
     prepare();
-  }, []);
+  }, [authHydrated, debtHydrated, hasCompletedOnboarding, router]);
 
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
         <View style={styles.logoContainer}>
-          <Ionicons name="checkbox-outline" size={80} color="#000000" />
+          <Ionicons name="wallet-outline" size={80} color="#000000" />
         </View>
         <Text style={styles.title}>Owe Me</Text>
-        <Text style={styles.subtitle}>Your Day, Simplified</Text>
+        <Text style={styles.subtitle}>Track who owes you — and get paid</Text>
       </View>
     </SafeAreaView>
   );
@@ -90,5 +82,6 @@ const styles = StyleSheet.create({
     color: "#64748B",
     marginTop: 8,
     textAlign: "center",
+    paddingHorizontal: 32,
   },
 });

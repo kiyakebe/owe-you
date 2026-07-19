@@ -1,33 +1,21 @@
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type Props = {
-  userName: string;
-  avatarUrl?: string;
+  title?: string;
 };
 
-export default function CustomHeader({ userName, avatarUrl }: Props) {
-  const insets = useSafeAreaInsets();
-
+export default function CustomHeader({ title = "Owe Me" }: Props) {
   return (
-    // <View style={[styles.container, { marginTop: insets.top }]}>
     <View style={styles.container}>
-      {/* Left: Profile */}
       <View style={styles.left}>
-        <Image
-          source={{
-            uri:
-              avatarUrl ??
-              "https://ui-avatars.com/api/?name=User&background=E5E7EB",
-          }}
-          style={styles.avatar}
-        />
-        <Text style={styles.userName}>{userName}</Text>
+        <View style={styles.logoMark}>
+          <Ionicons name="wallet-outline" size={20} color="#0F172A" />
+        </View>
+        <Text style={styles.title}>{title}</Text>
       </View>
 
-      {/* Right: Notification */}
-      <TouchableOpacity>
+      <TouchableOpacity accessibilityRole="button" accessibilityLabel="Notifications">
         <Ionicons name="notifications-outline" size={24} color="#111827" />
       </TouchableOpacity>
     </View>
@@ -48,15 +36,18 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  avatar: {
+  logoMark: {
     width: 40,
     height: 40,
     borderRadius: 20,
+    backgroundColor: "#F1F5F9",
+    alignItems: "center",
+    justifyContent: "center",
     marginRight: 12,
   },
-  userName: {
-    fontSize: 16,
-    fontWeight: "600",
+  title: {
+    fontSize: 18,
+    fontWeight: "700",
     color: "#111827",
   },
 });

@@ -37,9 +37,10 @@ export default function TabLayout() {
 
   return (
     <Tabs
+      initialRouteName="users"
       screenOptions={{
         tabBarShowLabel: false,
-        header: () => <CustomHeader userName="Kiya" />,
+        header: () => <CustomHeader title="Owe Me" />,
         tabBarItemStyle: {
           justifyContent: "center",
           alignItems: "center",
@@ -50,7 +51,7 @@ export default function TabLayout() {
           backgroundColor: "#ffffff",
           borderRadius: 50,
           marginHorizontal: 15,
-          paddingHorizontal: 20,
+          paddingHorizontal: 12,
           paddingVertical: 20,
           marginBottom: insets.bottom + 10,
           height: 60,
@@ -67,37 +68,46 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "Home",
-          tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} title="Home" icon="home-outline" />
-          ),
+          href: null,
         }}
       />
-
       <Tabs.Screen
-        name="current"
+        name="users"
         options={{
-          title: "Current",
+          title: "Users",
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} title="Current" icon="time-outline" />
+            <TabIcon focused={focused} title="Users" icon="people-outline" />
           ),
         }}
       />
       <Tabs.Screen
-        name="habits"
+        name="debt-management"
         options={{
-          title: "Habits",
+          title: "Debts",
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} title="Habits" icon="list-outline" />
+            <TabIcon
+              focused={focused}
+              title="Debts"
+              icon="document-text-outline"
+            />
           ),
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="payments"
         options={{
-          title: "Profile",
+          title: "Pay",
           tabBarIcon: ({ focused }) => (
-            <TabIcon focused={focused} title="Profile" icon="person-outline" />
+            <TabIcon focused={focused} title="Pay" icon="card-outline" />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="history"
+        options={{
+          title: "History",
+          tabBarIcon: ({ focused }) => (
+            <TabIcon focused={focused} title="History" icon="time-outline" />
           ),
         }}
       />
@@ -108,13 +118,13 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   activeContainer: {
     flex: 1,
-    minWidth: 100,
+    minWidth: 92,
     minHeight: 56,
     marginTop: 16,
     borderRadius: 999,
     justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 16,
+    paddingHorizontal: 12,
   },
   inactiveContainer: {
     minHeight: 56,
@@ -129,10 +139,4 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "600",
   },
-  inactiveText: {
-    color: "#A8B5DB",
-    fontSize: 12,
-    fontWeight: "600",
-  },
 });
-``;

@@ -11,8 +11,7 @@ export default function Onboarding() {
 
   const handleGetStarted = () => {
     completeOnboarding();
-    // The layout effect will handle the redirect, but we can also do it explicitly
-    router.replace("/(app)/(tabs)");
+    router.replace("/(app)/(tabs)/users");
   };
 
   return (
@@ -20,29 +19,30 @@ export default function Onboarding() {
       <View style={styles.content}>
         <View style={styles.headerContainer}>
           <View style={styles.badge}>
-            <Text style={styles.badgeText}>New Way to Habit</Text>
+            <Text style={styles.badgeText}>Debt tracking</Text>
           </View>
-          <Text style={styles.headerTitle}>Build Habits{"\n"}Your Way</Text>
+          <Text style={styles.headerTitle}>Know who{"\n"}owes you</Text>
           <Text style={styles.headerSubtitle}>
-            No schedules. No pressure. Just your habits, ready whenever you are.
+            Add people, log debts, collect payments, and keep a clear ledger —
+            all on your phone.
           </Text>
         </View>
 
         <View style={styles.featuresContainer}>
           <FeatureCard
-            icon="infinite-outline"
-            title="Flexible Tracking"
-            description="Complete habits anytime, anywhere."
+            icon="people-outline"
+            title="People first"
+            description="Keep a roster of everyone who owes you."
           />
           <FeatureCard
-            icon="layers-outline"
-            title="Organized Space"
-            description="All your habits in one simple view."
+            icon="document-text-outline"
+            title="Debt ledger"
+            description="Record amounts, reasons, and dates in seconds."
           />
           <FeatureCard
-            icon="stats-chart-outline"
-            title="Progress at a Glance"
-            description="See streaks and achievements without clutter."
+            icon="card-outline"
+            title="Smart payments"
+            description="Clear all at once or apply payments oldest-first."
           />
         </View>
 
@@ -68,7 +68,7 @@ function FeatureCard({
   title,
   description,
 }: {
-  icon: any;
+  icon: keyof typeof Ionicons.glyphMap;
   title: string;
   description: string;
 }) {
