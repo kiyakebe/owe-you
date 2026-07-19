@@ -85,22 +85,6 @@ export default function Login() {
                 <Text style={styles.loginButtonText}>Sign In</Text>
               </TouchableOpacity>
 
-              <View style={styles.divider}>
-                <View style={styles.dividerLine} />
-                <Text style={styles.dividerText}>OR CONTINUE WITH</Text>
-                <View style={styles.dividerLine} />
-              </View>
-
-              <View style={styles.socialContainer}>
-                <TouchableOpacity style={styles.socialButton}>
-                  <Ionicons name="logo-google" size={20} color="#000000" />
-                  <Text style={styles.socialButtonText}>Google</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.socialButton}>
-                  <Ionicons name="logo-apple" size={20} color="#000000" />
-                  <Text style={styles.socialButtonText}>Apple</Text>
-                </TouchableOpacity>
-              </View>
             </View>
 
             <View style={styles.footer}>
@@ -195,44 +179,6 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
     fontSize: 16,
     fontWeight: "bold",
-  },
-  divider: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginVertical: 12,
-  },
-  dividerLine: {
-    flex: 1,
-    height: 1,
-    backgroundColor: "#F1F5F9",
-  },
-  dividerText: {
-    marginHorizontal: 16,
-    color: "#94A3B8",
-    fontSize: 11,
-    fontWeight: "700",
-    letterSpacing: 1,
-  },
-  socialContainer: {
-    flexDirection: "row",
-    gap: 12,
-  },
-  socialButton: {
-    flex: 1,
-    backgroundColor: "#FFFFFF",
-    paddingVertical: 14,
-    borderRadius: 16,
-    borderWidth: 1,
-    borderColor: "#E2E8F0",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
-    gap: 10,
-  },
-  socialButtonText: {
-    color: "#1E293B",
-    fontSize: 15,
-    fontWeight: "600",
   },
   footer: {
     flexDirection: "row",
