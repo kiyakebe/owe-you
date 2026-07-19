@@ -1,10 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Redirect, useRouter } from "expo-router";
 import { useAuthStore } from "../store/useAuthStore";
-import { useEffect } from "react";
 
 import * as SplashScreen from "expo-splash-screen";
 
@@ -53,7 +52,7 @@ export default function Splash() {
         <View style={styles.logoContainer}>
           <Ionicons name="checkbox-outline" size={80} color="#000000" />
         </View>
-        <Text style={styles.title}>Owe You</Text>
+        <Text style={styles.title}>Owe Me</Text>
         <Text style={styles.subtitle}>Your Day, Simplified</Text>
       </View>
     </SafeAreaView>

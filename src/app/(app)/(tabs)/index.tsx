@@ -4,8 +4,9 @@ import {
   SafeAreaView,
   StyleSheet,
   TouchableOpacity,
+  Text,
 } from "react-native";
-import { Text } from "react-native";
+
 import HomeHabitList from "@/components/home/ListHabits";
 import SectionHeader from "@/components/SectionHeader";
 import HorizontalFeatures from "@/components/home/HomeFeatures";

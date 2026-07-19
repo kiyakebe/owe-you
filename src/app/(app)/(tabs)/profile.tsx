@@ -43,7 +43,7 @@ export default function ProfileScreen() {
             </TouchableOpacity>
           </View>
           <Text style={styles.userName}>kIYa kebe</Text>
-          <Text style={styles.userEmail}>Kiya@owe-you.com</Text>
+          <Text style={styles.userEmail}>Kiya@owe-me.com</Text>
         </View>
 
         {/* Stats Section */}
@@ -84,7 +84,10 @@ export default function ProfileScreen() {
 
         {/* Danger Zone */}
         <View style={[styles.dangerZone, { paddingBottom: inset.bottom + 40 }]}>
-          <TouchableOpacity style={styles.logoutButton} onPress={handleResetApp}>
+          <TouchableOpacity
+            style={styles.logoutButton}
+            onPress={handleResetApp}
+          >
             <Ionicons name="refresh-outline" size={20} color="#EF4444" />
             <Text style={styles.logoutText}>Reset App</Text>
           </TouchableOpacity>
