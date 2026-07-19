@@ -1,5 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 type Props = {
   title?: string;
@@ -9,9 +8,11 @@ export default function CustomHeader({ title = "Owe Me" }: Props) {
   return (
     <View style={styles.container}>
       <View style={styles.left}>
-        <View style={styles.logoMark}>
-          <Ionicons name="wallet-outline" size={20} color="#0F172A" />
-        </View>
+        <Image
+          source={require("../../assets/logo.png")}
+          style={styles.logo}
+          resizeMode="contain"
+        />
         <Text style={styles.title}>{title}</Text>
       </View>
     </View>
@@ -31,14 +32,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  logoMark: {
+  logo: {
     width: 40,
     height: 40,
-    borderRadius: 20,
-    backgroundColor: "#F1F5F9",
-    alignItems: "center",
-    justifyContent: "center",
     marginRight: 12,
+    borderRadius: 10,
   },
   title: {
     fontSize: 18,

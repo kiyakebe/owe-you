@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
 import { useAuthStore } from "../store/useAuthStore";
@@ -41,9 +40,11 @@ export default function Splash() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
-        <View style={styles.logoContainer}>
-          <Ionicons name="wallet-outline" size={80} color="#000000" />
-        </View>
+        <Image
+          source={require("../../assets/splash-icon.png")}
+          style={styles.logo}
+          resizeMode="contain"
+        />
         <Text style={styles.title}>Owe Me</Text>
         <Text style={styles.subtitle}>Track who owes you — and get paid</Text>
       </View>
@@ -54,34 +55,31 @@ export default function Splash() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ffffff",
+    backgroundColor: "#000000",
   },
   content: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
+    paddingHorizontal: 32,
   },
-  logoContainer: {
+  logo: {
+    width: 160,
+    height: 160,
     marginBottom: 24,
-    width: 120,
-    height: 120,
-    borderRadius: 30,
-    backgroundColor: "#F1F5F9",
-    justifyContent: "center",
-    alignItems: "center",
+    borderRadius: 32,
   },
   title: {
     fontSize: 32,
     fontWeight: "bold",
-    color: "#000000",
+    color: "#FFFFFF",
     textAlign: "center",
     letterSpacing: 1,
   },
   subtitle: {
     fontSize: 16,
-    color: "#64748B",
+    color: "#94A3B8",
     marginTop: 8,
     textAlign: "center",
-    paddingHorizontal: 32,
   },
 });
